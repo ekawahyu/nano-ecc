@@ -25,7 +25,7 @@ void vli_print(uint8_t *p_vli, unsigned int p_size)
 {
     while(p_size)
     {
-        printf("%02X ", p_vli[p_size - 1]);
+        printf("%02X", p_vli[p_size - 1]);
         --p_size;
     }
 }

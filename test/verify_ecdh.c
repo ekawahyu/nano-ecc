@@ -14,27 +14,67 @@ int test_vector(char *line) {
 
     r = get_vli(line, "sec1=", l_secret1);
     if (r < 0) return 0;
+    printf("Secret 1: ");
+    vli_print(l_secret1, NUM_ECC_DIGITS);
+    printf("\n");
     line += r;
+
+//    ecc_make_key(&l_Q1, l_secret1, l_secret1);
+//    printf("Public 1.x: ");
+//    vli_print(l_Q1.x, NUM_ECC_DIGITS);
+//    printf("\n");
+//    printf("Public 1.y: ");
+//    vli_print(l_Q1.y, NUM_ECC_DIGITS);
+//    printf("\n");
 
     r = get_vli(line, "pub1.x=", l_Q1.x);
     if (r < 0) return 0;
+    printf("Public 1.x: ");
+    vli_print(l_Q1.x, NUM_ECC_DIGITS);
+    printf("\n");
     line += r;
 
     r = get_vli(line, "pub1.y=", l_Q1.y);
     if (r < 0) return 0;
+    printf("Public 1.y: ");
+    vli_print(l_Q1.y, NUM_ECC_DIGITS);
+    printf("\n");
     line += r;
 
     r = get_vli(line, "sec2=", l_secret2);
     if (r < 0) return 0;
+    printf("Secret 2: ");
+    vli_print(l_secret2, NUM_ECC_DIGITS);
+    printf("\n");
     line += r;
+
+//    ecc_make_key(&l_Q2, l_secret2, l_secret2);
+//    printf("Public 2.x: ");
+//    vli_print(l_Q2.x, NUM_ECC_DIGITS);
+//    printf("\n");
+//    printf("Public 2.y: ");
+//    vli_print(l_Q2.y, NUM_ECC_DIGITS);
+//    printf("\n");
 
     r = get_vli(line, "pub2.x=", l_Q2.x);
     if (r < 0) return 0;
+    printf("Public 2.x: ");
+    vli_print(l_Q2.x, NUM_ECC_DIGITS);
+    printf("\n");
     line += r;
 
     r = get_vli(line, "pub2.y=", l_Q2.y);
     if (r < 0) return 0;
+    printf("Public 2.y: ");
+    vli_print(l_Q2.y, NUM_ECC_DIGITS);
+    printf("\n");
     line += r;
+
+    if (ecdh_shared_secret(l_shared1, &l_Q2, l_secret1, l_secret1)) {
+      printf("Shared: ");
+      vli_print(l_shared1, NUM_ECC_DIGITS);
+      printf("\n");
+    }
 
     r = get_vli(line, "shared=", l_shared1);
     if (r < 0) return 0;
@@ -57,7 +97,7 @@ int test_vector(char *line) {
         return 0;
     }
 
-    if (!ecdh_shared_secret(l_shared2, &l_Q1, l_secret2, NULL))
+    if (!ecdh_shared_secret(l_shared2, &l_Q1, l_secret2, l_secret2))
     {
         printf("Cannot compute shared secret\n");
         return 0;

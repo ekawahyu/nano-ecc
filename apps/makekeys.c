@@ -15,9 +15,9 @@ void vli_print(uint8_t *p_vli)
     unsigned i;
     for(i=0; i<NUM_ECC_DIGITS-1; ++i)
     {
-        printf("0x%02X, ", (unsigned)p_vli[i]);
+        printf("%02X", (unsigned)p_vli[NUM_ECC_DIGITS-i-1]);
     }
-    printf("0x%02X", (unsigned)p_vli[i]);
+    printf("%02X", (unsigned)p_vli[NUM_ECC_DIGITS-i-1]);
 }
 
 int randfd;
