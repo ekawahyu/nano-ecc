@@ -31,6 +31,14 @@ int test_vector(char *line) {
     if (r < 0) return 0;
     line += r;
 
+//     ecdsa_sign(l_r, l_s, l_private, l_private, l_private);
+//     printf("r: ");
+//     vli_print(l_r, NUM_ECC_DIGITS);
+//     printf("\n");
+//     printf("s: ");
+//     vli_print(l_s, NUM_ECC_DIGITS);
+//     printf("\n");
+
     r = get_vli(line, "random=", l_random);
     if (r < 0) return 0;
     line += r;

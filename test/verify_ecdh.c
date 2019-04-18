@@ -19,13 +19,13 @@ int test_vector(char *line) {
     printf("\n");
     line += r;
 
-//    ecc_make_key(&l_Q1, l_secret1, l_secret1);
-//    printf("Public 1.x: ");
-//    vli_print(l_Q1.x, NUM_ECC_DIGITS);
-//    printf("\n");
-//    printf("Public 1.y: ");
-//    vli_print(l_Q1.y, NUM_ECC_DIGITS);
-//    printf("\n");
+//     ecc_make_key(&l_Q1, l_secret1, l_secret1);
+//     printf("Public 1.x: ");
+//     vli_print(l_Q1.x, NUM_ECC_DIGITS);
+//     printf("\n");
+//     printf("Public 1.y: ");
+//     vli_print(l_Q1.y, NUM_ECC_DIGITS);
+//     printf("\n");
 
     r = get_vli(line, "pub1.x=", l_Q1.x);
     if (r < 0) return 0;
@@ -48,13 +48,13 @@ int test_vector(char *line) {
     printf("\n");
     line += r;
 
-//    ecc_make_key(&l_Q2, l_secret2, l_secret2);
-//    printf("Public 2.x: ");
-//    vli_print(l_Q2.x, NUM_ECC_DIGITS);
-//    printf("\n");
-//    printf("Public 2.y: ");
-//    vli_print(l_Q2.y, NUM_ECC_DIGITS);
-//    printf("\n");
+//     ecc_make_key(&l_Q2, l_secret2, l_secret2);
+//     printf("Public 2.x: ");
+//     vli_print(l_Q2.x, NUM_ECC_DIGITS);
+//     printf("\n");
+//     printf("Public 2.y: ");
+//     vli_print(l_Q2.y, NUM_ECC_DIGITS);
+//     printf("\n");
 
     r = get_vli(line, "pub2.x=", l_Q2.x);
     if (r < 0) return 0;

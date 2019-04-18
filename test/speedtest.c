@@ -434,11 +434,11 @@ int main()
         uint64_t l_diff = getTimeMs() - l_start;
         vli_print(l_shared);
         printf("\n");
-        printf("Time = %lu\n", l_diff);
+        printf("Time = %llu\n", l_diff);
         l_total += l_diff;
     }
     
-    printf("Total ECDH time: %lu\n", l_total);
+    printf("Total ECDH time: %llu\n", l_total);
     
     l_total = 0;
     for(i=0; i<10; ++i)
@@ -449,11 +449,11 @@ int main()
             printf("ecdsa_verify() failed\n");
         }
         uint64_t l_diff = getTimeMs() - l_start;
-        printf("Time = %lu\n", l_diff);
+        printf("Time = %llu\n", l_diff);
         l_total += l_diff;
     }
     
-    printf("Total ECDSA time: %lu\n", l_total);
+    printf("Total ECDSA time: %llu\n", l_total);
     
     return 0;
 }
